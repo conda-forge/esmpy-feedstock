@@ -1,20 +1,22 @@
 package:
     name: esmpy
-    version: 7.0.0
+    version: 7.1.0
 
 source:
     git_url: git://git.code.sf.net/p/esmf/esmf
-    git_tag: ESMF_7_0_0
+    git_tag: ESMF_7_1_0
 
 build:
-    number: 1
-    skip: True  # [win or py3k]
+    number: 0
+    skip: True  # [win]
 
 requirements:
     build:
         - python
         - numpy
         - esmf
+
+        - nose  # Needed for testing
     run:
         - python
         - numpy
