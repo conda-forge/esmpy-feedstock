@@ -28,7 +28,7 @@ test:
 
 about:
     home: https://www.earthsystemcog.org/projects/esmpy/
-    license: The University of Illinois/NCSA Open Source License (NCSA)
+    license: The University of Illinois/NCSA
     summary: ESMPy is a Python interface to the Earth System Modeling Framework (ESMF) regridding utility.
 
 extra:
