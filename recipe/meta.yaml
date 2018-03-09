@@ -1,10 +1,10 @@
 package:
     name: esmpy
-    version: 7.1.0
+    version: 7.1.0r
 
 source:
-    git_url: git://git.code.sf.net/p/esmf/esmf
-    git_tag: ESMF_7_1_0
+    url: https://sourceforge.net/code-snapshots/git/e/es/esmf/esmf.git/esmf-esmf-e3ac95b2e25a36d6cbfa68ed93eb1645fea29fcd.zip
+    sha256: 8d3b77b552705901542c2bc6c24bddfdd8daa8c01a8b790885b93392e3c627c6
 
 build:
     number: 0
@@ -14,13 +14,13 @@ requirements:
     build:
         - python
         - numpy
-        - esmf
+        - esmf ==7.1.0r
 
         - nose  # Needed for testing
     run:
         - python
         - numpy
-        - esmf
+        - esmf ==7.1.0r
 
 test:
     imports:
