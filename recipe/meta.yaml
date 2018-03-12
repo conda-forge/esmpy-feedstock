@@ -1,6 +1,9 @@
+{% set version = "7.1.0r" %}
+{% set ver = version.replace(".", "_") %}
+
 package:
     name: esmpy
-    version: 7.1.0r
+    version: {{ version }}
 
 source:
     url: https://sourceforge.net/code-snapshots/git/e/es/esmf/esmf.git/esmf-esmf-e3ac95b2e25a36d6cbfa68ed93eb1645fea29fcd.zip
@@ -14,13 +17,13 @@ requirements:
     build:
         - python
         - numpy
-        - esmf ==7.1.0r
+        - esmf {{ version }}
 
         - nose  # Needed for testing
     run:
         - python
         - numpy
-        - esmf ==7.1.0r
+        - esmf {{ version }}
 
 test:
     imports:
