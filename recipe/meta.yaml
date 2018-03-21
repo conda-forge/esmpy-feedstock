@@ -6,10 +6,11 @@ package:
     version: {{ version }}
 
 source:
-    git_url: git://git.code.sf.net/p/esmf/esmf
-    git_tag: ESMF_7_1_0r
-#    url: https://sourceforge.net/code-snapshots/git/e/es/esmf/esmf.git/esmf-esmf-e3ac95b2e25a36d6cbfa68ed93eb1645fea29fcd.zip
-#    sha256: 8d3b77b552705901542c2bc6c24bddfdd8daa8c01a8b790885b93392e3c627c6
+#    git_url: git://git.code.sf.net/p/esmf/esmf
+#    git_tag: ESMF_7_1_0r
+    url: http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmf_7_1_0r_src.tar.gz
+    sha256: ae9a5edb8d40ae97a35cbd4bd00b77061f995c77c43d36334dbb95c18b00a889
+
 
 build:
     number: 0
