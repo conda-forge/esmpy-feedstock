@@ -1,4 +1,4 @@
-{% set version = "7.1.0" %}
+{% set version = "8.0.0" %}
 {% set ver = version.replace(".", "_") + "r" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_{{ ver }}/esmf_{{ ver }}_src.tar.gz
-  sha256: ae9a5edb8d40ae97a35cbd4bd00b77061f995c77c43d36334dbb95c18b00a889
+  sha256: 75c34c41806e703551b6b79566edf34c23f1eebcf821749e5320e860e565d94f
 
 
 build:
