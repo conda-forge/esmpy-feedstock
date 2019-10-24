@@ -1,5 +1,5 @@
 {% set version = "8.0.0" %}
-{% set ver = version.replace(".", "_") + "r" %}
+{% set ver = version.replace(".", "_") %}
 
 package:
   name: esmpy
