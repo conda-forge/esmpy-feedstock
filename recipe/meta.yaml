@@ -9,7 +9,6 @@ source:
   url: http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_{{ ver }}/esmf_{{ ver }}_src.tar.gz
   sha256: 75c34c41806e703551b6b79566edf34c23f1eebcf821749e5320e860e565d94f
 
-
 build:
   number: 0
   skip: True  # [win]
