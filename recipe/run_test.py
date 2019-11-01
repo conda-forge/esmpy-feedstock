@@ -1,13 +1,13 @@
-# import os
-#
+import os
+
 import ESMF
-# import numpy as np
-#
-#
-# lons = np.arange(5, 350.1, 10)
-# lats  = np.arange(-85, 85.1, 10)
-#
-# mg = ESMF.Manager(debug=True)
+import numpy as np
+
+
+lons = np.arange(5, 350.1, 10)
+lats  = np.arange(-85, 85.1, 10)
+
+mg = ESMF.Manager(debug=True)
 #
 # [lat, lon] = [1, 0]
 #
