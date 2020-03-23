@@ -9,7 +9,7 @@ macos_machine:
 macos_min_version:
 - '10.9'
 mpi:
-- nompi
+- mpich
 numpy:
 - '1.14'
 pin_run_as_build:
@@ -17,4 +17,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.7'
+- 3.7.* *_cpython
+zip_keys:
+- - numpy
+  - python
