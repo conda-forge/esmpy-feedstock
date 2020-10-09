@@ -1,4 +1,4 @@
-{% set version = "8.1.0.beta.snapshot.32" %}
+{% set version = "8.1.0.beta.snapshot.33" %}
 {% set ver = version.replace(".", "_") %}
 {% set build = 0 %}
 
@@ -16,11 +16,11 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/ESMF_{{ ver }}/esmf_{{ ver }}_src.tar.gz
-  sha256: 98d15c4d62a22a577e5bf774b238421af1d0cc32c113b6037eb4c9f65fe27e73
+  sha256: 1c7ff2963d5a47821e14921b380bc12b232e71b0844e0dcced4ea1d6614e68f0
 
 build:
   number: {{ build }}
-  skip: True  # [win]
+  skip: true  # [win]
 
   # add build string so packages can depend on
   # mpi or nompi variants explicitly:
@@ -33,7 +33,7 @@ build:
   {% else %}
   {% set mpi_prefix = "nompi" %}
   {% endif %}
-  string: "{{ mpi_prefix }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build }}"
+  string: {{ mpi_prefix }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build }}
 
 requirements:
   host:
