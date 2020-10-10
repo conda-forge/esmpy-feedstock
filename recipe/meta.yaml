@@ -1,6 +1,6 @@
 {% set version = "8.1.0.beta.snapshot.33" %}
 {% set ver = version.replace(".", "_") %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
