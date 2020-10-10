@@ -1,7 +1,7 @@
 channel_sources:
-- conda-forge,defaults
+- conda-forge/label/esmf_dev,conda-forge,defaults
 channel_targets:
-- conda-forge main
+- conda-forge esmpy_dev
 docker_image:
 - condaforge/linux-anvil-comp7
 mpi:
