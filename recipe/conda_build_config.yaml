@@ -1,3 +1,6 @@
+channel_sources:
+- conda-forge/label/esmf_dev,conda-forge,defaults
+
 channel_targets:
   - conda-forge esmpy_dev
 
