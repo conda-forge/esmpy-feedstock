@@ -1,3 +1,6 @@
+channel_targets:
+  - conda-forge esmpy_dev
+
 mpi:
   - nompi
   - mpich
