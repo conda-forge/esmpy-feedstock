@@ -5,14 +5,17 @@ channel_targets:
 docker_image:
 - condaforge/linux-anvil-comp7
 mpi:
-- mpich
+- openmpi
 numpy:
-- '1.16'
+- '1.18'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.8.* *_cpython
+- 3.6.* *_73_pypy
 target_platform:
 - linux-64
+zip_keys:
+- - numpy
+  - python
