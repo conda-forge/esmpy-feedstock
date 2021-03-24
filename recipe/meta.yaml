@@ -1,6 +1,6 @@
-{% set version = "8.0.1" %}
+{% set version = "8.1.0" %}
 {% set ver = version.replace(".", "_") %}
-{% set build = 2 %}
+{% set build = 0 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -16,11 +16,11 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/ESMF_{{ ver }}/esmf_{{ ver }}_src.tar.gz
-  sha256: 9172fb73f3fe95c8188d889ee72fdadb4f978b1d969e1d8e401e8d106def1d84
+  sha256: 367dc89ab8e273f6fbe3d63a64a9a6735cbaa77d5f144ebae4af198fee5bb203
 
 build:
   number: {{ build }}
-  skip: True  # [win]
+  skip: true  # [win]
 
   # add build string so packages can depend on
   # mpi or nompi variants explicitly:
@@ -33,7 +33,7 @@ build:
   {% else %}
   {% set mpi_prefix = "nompi" %}
   {% endif %}
-  string: "{{ mpi_prefix }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build }}"
+  string: {{ mpi_prefix }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build }}
 
 requirements:
   host:
@@ -56,7 +56,7 @@ test:
     - ESMF
 
 about:
-  home: https://www.earthsystemcog.org/projects/esmpy/
+  home: http://earthsystemmodeling.org/esmpy/
   license: The University of Illinois/NCSA
   license_file: LICENSE
   summary: ESMPy is a Python interface to the Earth System Modeling Framework (ESMF) regridding utility.

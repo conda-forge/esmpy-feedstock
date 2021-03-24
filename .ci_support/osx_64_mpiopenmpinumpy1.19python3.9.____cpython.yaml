@@ -8,9 +8,13 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
 - openmpi
+mpich:
+- '3'
 numpy:
 - '1.19'
 pin_run_as_build:
+  mpich:
+    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
