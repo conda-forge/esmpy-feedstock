@@ -11,7 +11,7 @@ mpi:
 mpich:
 - '3'
 numpy:
-- '1.17'
+- '1.18'
 pin_run_as_build:
   mpich:
     max_pin: x.x
