@@ -1,6 +1,6 @@
-{% set version = "8.1.1" %}
+{% set version = "8.2.0" %}
 {% set ver = version.replace(".", "_") %}
-{% set build = 1 %}
+{% set build = 0 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -16,9 +16,7 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/ESMF_{{ ver }}/esmf_{{ ver }}_src.tar.gz
-  sha256: 58c2e739356f21a1b32673aa17a713d3c4af9d45d572f4ba9168c357d586dc75
-  patches:
-    - 0000-setup.py-version.patch
+  sha256: 3693987aba2c8ae8af67a0e222bea4099a48afe09b8d3d334106f9d7fc311485
 
 build:
   number: {{ build }}
