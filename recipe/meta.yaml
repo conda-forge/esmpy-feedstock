@@ -21,7 +21,7 @@ source:
 build:
   number: {{ build }}
   noarch: python
-  skip: true  # [win]
+  # skip: true  # [win]
 
   # add build string so packages can depend on
   # mpi or nompi variants explicitly:
