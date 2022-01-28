@@ -38,14 +38,14 @@ build:
 
 requirements:
   host:
-    - python>=3.6
+    - python >=3.6
     - numpy
     - esmf {{ version }} {{ mpi_prefix }}_*
     - nose
     - {{ mpi }}  # [mpi != 'nompi']
     - mpi4py  # [mpi != 'nompi']
   run:
-    - python>=3.6
+    - python >=3.6
     - numpy
     - esmf {{ version }} {{ mpi_prefix }}_*
     - {{ mpi }}  # [mpi != 'nompi']
