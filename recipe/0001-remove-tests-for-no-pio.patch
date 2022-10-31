@@ -1,0 +1,82 @@
+diff -ruN esmf-8.3.1/src/addon/ESMPy/src/ESMF/test/test_api/test_mesh.py esmf-8.3.1-patch/src/addon/ESMPy/src/ESMF/test/test_api/test_mesh.py
+--- esmf-8.3.1/src/addon/ESMPy/src/ESMF/test/test_api/test_mesh.py	2022-10-31 23:30:12.918290319 +0100
++++ esmf-8.3.1-patch/src/addon/ESMPy/src/ESMF/test/test_api/test_mesh.py	2022-10-31 23:26:27.901172023 +0100
+@@ -179,24 +179,6 @@
+ 
+         self.assertNumpyAll(mesh.area, elemArea)
+ 
+-    @attr('data')
+-    def test_mesh_create_from_file_scrip(self):
+-        try:
+-            esmfdir = os.path.dirname(inspect.getfile(ESMF))
+-            mesh_from_file = Mesh(filename=os.path.join(esmfdir, "test/data/ne4np4-pentagons.nc"),
+-                                  filetype=FileFormat.SCRIP)
+-        except:
+-            raise NameError('mesh_create_from_file_scrip failed!')
+-
+-    @attr('data')
+-    def test_mesh_create_from_file_esmfmesh(self):
+-        try:
+-            esmfdir = os.path.dirname(inspect.getfile(ESMF))
+-            mesh_from_file = Mesh(filename=os.path.join(esmfdir, "test/data/ne4np4-esmf.nc"),
+-                                  filetype=FileFormat.ESMFMESH)
+-        except:
+-            raise NameError('mesh_create_from_file_scrip failed!')
+-
+     def test_mesh_copy(self):
+         parallel = False
+         if pet_count() > 1:
+@@ -257,53 +239,6 @@
+ 
+     @attr('data')
+     @attr('serial')
+-    def test_slice_mesh_created_from_file_scrip(self):
+-        try:
+-            esmfdir = os.path.dirname(inspect.getfile(ESMF))
+-            mesh = Mesh(filename=os.path.join(esmfdir, "test/data/ne4np4-pentagons.nc"),
+-                        filetype=FileFormat.SCRIP,
+-                        convert_to_dual=True)
+-        except:
+-            raise NameError('mesh_create_from_file_scrip failed!')
+-
+-        mesh2 = mesh[0:5]
+-
+-        print ('mesh.coords[0][0].shape = ',mesh.coords[0][0].shape)
+-        assert mesh.coords[0][0].shape == (866,)
+-        assert mesh.size == [866,936]
+-        assert mesh.size_owned == [866,936]
+-
+-        del mesh
+-
+-        assert mesh2.coords[0][0].shape == (5,)
+-        assert mesh2.size == [5, None]
+-        assert mesh2.size_owned == [5, None]
+-
+-    @attr('data')
+-    @attr('serial')
+-    def test_slice_mesh_created_from_file_esmfmesh(self):
+-        try:
+-            esmfdir = os.path.dirname(inspect.getfile(ESMF))
+-            mesh = Mesh(filename=os.path.join(esmfdir, "test/data/ne4np4-esmf.nc"),
+-                                  filetype=FileFormat.ESMFMESH)
+-        except:
+-            raise NameError('mesh_create_from_file_esmfmesh failed!')
+-
+-        mesh2 = mesh[0:5]
+-
+-        assert mesh.coords[0][0].shape == (866,)
+-        assert mesh.size == [866, 936]
+-        assert mesh.size_owned == [866, 936]
+-
+-        del mesh
+-
+-        assert mesh2.coords[0][0].shape == (5,)
+-        assert mesh2.size == [5, None]
+-        assert mesh2.size_owned == [5, None]
+-
+-
+-    @attr('data')
+-    @attr('serial')
+     @expected_failure
+     #TODO: remove expected failure once we have a smaller data file with mesh element coordinates to use
+     # TODO: have to define slicing for mesh element coordinates as well..

@@ -16,6 +16,8 @@ package:
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 6c39261e55dcdf9781cdfa344417b9606f7f961889d5ec626150f992f04f146d
+  patches:
+    - 0001-remove-tests-for-no-pio.patch  # [mpi == 'nompi']
 
 build:
   number: {{ build }}
