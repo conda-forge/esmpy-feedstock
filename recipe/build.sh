@@ -4,6 +4,9 @@ export ESMFMKFILE=${PREFIX}/lib/esmf.mk
 
 cd ${SRC_DIR}/src/addon/esmpy
 
+# this is an unused dumping grounds and causes disconcerting warnings
+rm -rf src/esmpy/fragments
+
 
 ${PYTHON} -m pip install .
 
