@@ -54,7 +54,13 @@ requirements:
 
 test:
   imports:
-    - ESMF
+    - esmpy
+  requires:
+    - pip
+  commands:
+    - pip check
+    - mpiexec -np 1 python -m pytest -vs
+    - mpiexec -np 2 python -m pytest -vs
 
 about:
   home: http://earthsystemmodeling.org/esmpy/

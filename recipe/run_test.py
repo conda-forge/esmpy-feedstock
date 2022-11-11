@@ -1,4 +1,4 @@
-import ESMF
+import esmpy
 
 
-ESMF.Manager(debug=True)
+esmf.Manager(debug=True)
