@@ -2,7 +2,7 @@
 
 export ESMFMKFILE=${PREFIX}/lib/esmf.mk
 
-cd ${SRC_DIR}/src/addon/ESMPy
+cd ${SRC_DIR}/src/addon/esmpy
 
 
 ${PYTHON} setup.py build --ESMFMKFILE=${ESMFMKFILE}
