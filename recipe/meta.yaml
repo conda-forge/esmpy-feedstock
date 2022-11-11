@@ -44,6 +44,7 @@ requirements:
     - nose
     - {{ mpi }}  # [mpi != 'nompi']
     - mpi4py  # [mpi != 'nompi']
+    - pip
   run:
     - python
     - numpy
