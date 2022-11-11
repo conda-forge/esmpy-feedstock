@@ -16,8 +16,6 @@ package:
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 28531810bf1ae78646cda6494a53d455d194400f19dccd13d6361871de42ed0f
-  patches:
-    - 0001-remove-tests-for-no-pio.patch  # [mpi == 'nompi']
 
 build:
   number: {{ build }}
@@ -60,8 +58,9 @@ test:
     - pip
   commands:
     - pip check
-    - mpiexec -np 1 python -m pytest -vs
-    - mpiexec -np 2 python -m pytest -vs
+    - python -m pytest -vs  # [mpi == 'nompi']
+    - mpiexec -np 1 python -m pytest -vs  # [mpi != 'nompi']
+    - mpiexec -np 2 python -m pytest -vs  # [mpi != 'nompi']
 
 about:
   home: http://earthsystemmodeling.org/esmpy/
