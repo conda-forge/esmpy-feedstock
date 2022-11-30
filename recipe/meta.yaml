@@ -43,6 +43,7 @@ requirements:
     - {{ mpi }}  # [mpi != 'nompi']
     - mpi4py  # [mpi != 'nompi']
     - pip
+    - setuptools-git-versioning
   run:
     - python
     - numpy
