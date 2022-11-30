@@ -63,6 +63,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - zklaus
     - ocefpaf
     - rokuingh
     - xylar
