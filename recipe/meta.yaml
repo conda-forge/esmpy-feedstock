@@ -36,6 +36,7 @@ build:
 
 requirements:
   host:
+    - make  # [unix]
     - python
     - numpy
     - esmf {{ version }} {{ mpi_prefix }}_*
@@ -56,12 +57,11 @@ test:
   imports:
     - esmpy
   requires:
-    - make
     - pip
     - pytest-json-report
   commands:
     - pip check
-    - make test
+    # - make test
     # - python -m pytest -vs  # [mpi == 'nompi']
     # - mpiexec -np 1 python -m pytest -vs  # [mpi != 'nompi']
     # - mpiexec -np 2 python -m pytest -vs  # [mpi != 'nompi']

@@ -10,6 +10,8 @@ rm -rf src/esmpy/fragments
 
 ${PYTHON} -m pip install .
 
+make test
+
 for shell in sh csh fish
 do
   for act_deact in activate deactivate
