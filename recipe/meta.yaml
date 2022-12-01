@@ -56,13 +56,15 @@ test:
   imports:
     - esmpy
   requires:
+    - make
     - pip
     - pytest-json-report
   commands:
     - pip check
-    - python -m pytest -vs  # [mpi == 'nompi']
-    - mpiexec -np 1 python -m pytest -vs  # [mpi != 'nompi']
-    - mpiexec -np 2 python -m pytest -vs  # [mpi != 'nompi']
+    - make test
+    # - python -m pytest -vs  # [mpi == 'nompi']
+    # - mpiexec -np 1 python -m pytest -vs  # [mpi != 'nompi']
+    # - mpiexec -np 2 python -m pytest -vs  # [mpi != 'nompi']
 
 about:
   home: http://earthsystemmodeling.org/esmpy/
