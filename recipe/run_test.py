@@ -1,4 +1,4 @@
 import esmpy
 
 
-esmf.Manager(debug=True)
+esmpy.Manager(debug=True)
