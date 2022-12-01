@@ -38,6 +38,8 @@ requirements:
   host:
     - make  # [unix]
     - python
+    - pytest
+    - pytest-json-report
     - numpy
     - esmf {{ version }} {{ mpi_prefix }}_*
     - nose
