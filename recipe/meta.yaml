@@ -57,6 +57,7 @@ test:
     - esmpy
   requires:
     - pip
+    - pytest-json-report
   commands:
     - pip check
     - python -m pytest -vs  # [mpi == 'nompi']
