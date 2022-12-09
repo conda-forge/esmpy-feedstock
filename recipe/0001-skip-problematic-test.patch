@@ -21,3 +21,17 @@ diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '
      @pytest.mark.skipif(_ESMF_PIO==False, reason="PIO required in ESMF build")
      @pytest.mark.skipif(_ESMF_NETCDF==False, reason="NetCDF required in ESMF build")
      def test_field_regrid_zeroregion_select_ndbounds(self):
+diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.orig/src/addon/esmpy/src/esmpy/util/mesh_utilities.py esmf-8.4.0/src/addon/esmpy/src/esmpy/util/mesh_utilities.py
+--- esmf-8.4.0.orig/src/addon/esmpy/src/esmpy/util/mesh_utilities.py	2022-10-25 00:04:55.000000000 +0200
++++ esmf-8.4.0/src/addon/esmpy/src/esmpy/util/mesh_utilities.py	2022-12-09 18:06:18.277368418 +0100
+@@ -512,7 +512,9 @@
+ 
+     mesh.add_nodes(num_node,nodeId,nodeCoord,nodeOwner)
+ 
+-    mesh.add_elements(num_elem,elemId,elemType,elemConn, element_area=elemArea, element_mask=elemMask)
++    mesh.add_elements(num_elem, elemId, elemType, elemConn,
++                      element_area=elemArea, element_mask=elemMask,
++                      element_coords=elemCoord)
+ 
+     if domask and doarea:
+         return mesh, nodeCoord, nodeOwner, elemType, elemConn, elemMask, elemArea
