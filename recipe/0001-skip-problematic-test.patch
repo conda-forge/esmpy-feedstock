@@ -1,3 +1,15 @@
+diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.orig/src/addon/esmpy/pyproject.toml esmf-8.4.0/src/addon/esmpy/pyproject.toml
+--- esmf-8.4.0.orig/src/addon/esmpy/pyproject.toml	2022-10-25 00:04:55.000000000 +0200
++++ esmf-8.4.0/src/addon/esmpy/pyproject.toml	2022-12-09 16:02:57.620508852 +0100
+@@ -19,7 +19,7 @@
+     # build-system section above). By including it here, we at least
+     # ensure that this package will be available for a second or
+     # subsequent pip install of esmpy.
+-    'setuptools-git-versioning; python_version >= "3.10"',
++    # 'setuptools-git-versioning; python_version >= "3.10"',
+ ]
+ dynamic = ["version"]
+ 
 diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.orig/src/addon/esmpy/src/esmpy/test/test_api/test_regrid.py esmf-8.4.0/src/addon/esmpy/src/esmpy/test/test_api/test_regrid.py
 --- esmf-8.4.0.orig/src/addon/esmpy/src/esmpy/test/test_api/test_regrid.py	2022-10-25 00:04:55.000000000 +0200
 +++ esmf-8.4.0/src/addon/esmpy/src/esmpy/test/test_api/test_regrid.py	2022-12-09 15:19:42.948372036 +0100

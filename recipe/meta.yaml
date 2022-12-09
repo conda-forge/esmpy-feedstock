@@ -42,6 +42,7 @@ requirements:
     - python
     - pytest
     - pytest-json-report
+    - netcdf4
     - numpy
     - esmf {{ version }} {{ mpi_prefix }}_*
     - nose
