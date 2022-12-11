@@ -10,7 +10,12 @@ rm -rf src/esmpy/fragments
 
 ${PYTHON} -m pip install .
 
-make test
+if [[ ! -z "$mpi" && "$mpi" != "nompi" ]]; then
+    make test
+else
+    export ESMF_MPIRUN=${SRC_DIR}/src/Infrastructure/stubs/mpiuni/mpirun
+    make test_serial
+fi
 
 for shell in sh csh fish
 do
