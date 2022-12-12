@@ -9,12 +9,12 @@ macos_machine:
 mpi:
 - openmpi
 mpich:
-- '3'
+- '4'
 numpy:
 - '1.21'
+openmpi:
+- '4'
 pin_run_as_build:
-  mpich:
-    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x

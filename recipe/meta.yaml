@@ -1,6 +1,5 @@
-{% set version = "8.2.0" %}
-{% set ver = version.replace(".", "_") %}
-{% set build = 1 %}
+{% set version = "8.4.0" %}
+{% set build = 0 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -15,8 +14,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/esmf-org/esmf/archive/ESMF_{{ ver }}/esmf_{{ ver }}_src.tar.gz
-  sha256: 3693987aba2c8ae8af67a0e222bea4099a48afe09b8d3d334106f9d7fc311485
+  url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 28531810bf1ae78646cda6494a53d455d194400f19dccd13d6361871de42ed0f
+  patches:
+    - 0001-skip-problematic-test.patch
 
 build:
   number: {{ build }}
@@ -37,12 +38,18 @@ build:
 
 requirements:
   host:
+    - make  # [unix]
     - python
+    - pytest
+    - pytest-json-report
+    - netcdf4
     - numpy
     - esmf {{ version }} {{ mpi_prefix }}_*
     - nose
     - {{ mpi }}  # [mpi != 'nompi']
     - mpi4py  # [mpi != 'nompi']
+    - pip
+    - setuptools-git-versioning
   run:
     - python
     - numpy
@@ -53,7 +60,16 @@ requirements:
 
 test:
   imports:
-    - ESMF
+    - esmpy
+  requires:
+    - pip
+    - pytest-json-report
+  commands:
+    - pip check
+    # - make test
+    # - python -m pytest -vs  # [mpi == 'nompi']
+    # - mpiexec -np 1 python -m pytest -vs  # [mpi != 'nompi']
+    # - mpiexec -np 2 python -m pytest -vs  # [mpi != 'nompi']
 
 about:
   home: http://earthsystemmodeling.org/esmpy/
