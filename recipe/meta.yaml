@@ -18,6 +18,7 @@ source:
   sha256: 28531810bf1ae78646cda6494a53d455d194400f19dccd13d6361871de42ed0f
   patches:
     - 0001-skip-problematic-test.patch
+    - fix-pyproject.patch
 
 build:
   number: {{ build }}
