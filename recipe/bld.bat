@@ -2,7 +2,7 @@ set "ESMFMKFILE=%PREFIX%/lib/esmf.mk"
 
 cd %SRC_DIR%\src\addon\esmpy
 
-rmdir /s src\esmpy\fragments
+rem rmdir /s src\esmpy\fragments
 
 
 %PYTHON% -m pip install .

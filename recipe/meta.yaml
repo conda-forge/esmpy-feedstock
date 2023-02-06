@@ -19,6 +19,7 @@ source:
   patches:
     - 0001-skip-problematic-test.patch
     - fix-pyproject.patch
+    - remove-fragments.patch
 
 build:
   number: {{ build }}
