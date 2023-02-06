@@ -1,17 +1,5 @@
-diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.test/src/addon/esmpy/pyproject.toml esmf-8.4.0/src/addon/esmpy/pyproject.toml
---- esmf-8.4.0.test/src/addon/esmpy/pyproject.toml	2023-02-06 14:07:07.369242226 +0100
-+++ esmf-8.4.0/src/addon/esmpy/pyproject.toml	2023-02-06 14:07:12.881277255 +0100
-@@ -6,7 +6,7 @@
- name = "esmpy"
- description = "ESMF Python interface"
- # readme = "README.md"
--maintainers = [{author = "ESMF Core Team", email = "esmf_support@ucar.edu"}]
-+maintainers = [{name = "ESMF Core Team", email = "esmf_support@ucar.edu"}]
- requires-python = ">=3.7"
- license = {text = "University of Illinois-NCSA"}
- dependencies = [
-diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.test/src/addon/esmpy/src/esmpy/fragments/dump_esmf_internal_info.py esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/dump_esmf_internal_info.py
---- esmf-8.4.0.test/src/addon/esmpy/src/esmpy/fragments/dump_esmf_internal_info.py	2023-02-06 14:07:07.370242233 +0100
+diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.pyproject/src/addon/esmpy/src/esmpy/fragments/dump_esmf_internal_info.py esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/dump_esmf_internal_info.py
+--- esmf-8.4.0.pyproject/src/addon/esmpy/src/esmpy/fragments/dump_esmf_internal_info.py	2023-02-06 14:55:20.087924325 +0100
 +++ esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/dump_esmf_internal_info.py	1970-01-01 01:00:00.000000000 +0100
 @@ -1,151 +0,0 @@
 -# This file contains old routines to dump internal ESMF info from ESMPy Grid and Field objects
@@ -165,8 +153,8 @@ diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '
 -    esmf_coords = np.frombuffer(buffer, constants._ESMF2PythonType[self.type])
 -
 -    print esmf_coords
-diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.test/src/addon/esmpy/src/esmpy/fragments/extras.py esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/extras.py
---- esmf-8.4.0.test/src/addon/esmpy/src/esmpy/fragments/extras.py	2023-02-06 14:07:07.370242233 +0100
+diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.pyproject/src/addon/esmpy/src/esmpy/fragments/extras.py esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/extras.py
+--- esmf-8.4.0.pyproject/src/addon/esmpy/src/esmpy/fragments/extras.py	2023-02-06 14:55:20.087924325 +0100
 +++ esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/extras.py	1970-01-01 01:00:00.000000000 +0100
 @@ -1,191 +0,0 @@
 -# $Id$
@@ -360,8 +348,8 @@ diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '
 -    elemType = ets.value
 -    elemConn = ecs.value
 -    return nodeId, nodeCoord, nodeOwner, elemId, elemType, elemConn
-diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.test/src/addon/esmpy/src/esmpy/fragments/remap.py esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/remap.py
---- esmf-8.4.0.test/src/addon/esmpy/src/esmpy/fragments/remap.py	2023-02-06 14:07:07.370242233 +0100
+diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.pyproject/src/addon/esmpy/src/esmpy/fragments/remap.py esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/remap.py
+--- esmf-8.4.0.pyproject/src/addon/esmpy/src/esmpy/fragments/remap.py	2023-02-06 14:55:20.087924325 +0100
 +++ esmf-8.4.0/src/addon/esmpy/src/esmpy/fragments/remap.py	1970-01-01 01:00:00.000000000 +0100
 @@ -1,152 +0,0 @@
 -# $Id$
