@@ -24,7 +24,6 @@ source:
 
 build:
   number: {{ build }}
-  skip: true  # [not win]
 
   # add build string so packages can depend on
   # mpi or nompi variants explicitly:
