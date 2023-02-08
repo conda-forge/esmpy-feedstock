@@ -1,0 +1,39 @@
+diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.fragment/src/addon/esmpy/src/esmpy/api/constants.py esmf-8.4.0/src/addon/esmpy/src/esmpy/api/constants.py
+--- esmf-8.4.0.fragment/src/addon/esmpy/src/esmpy/api/constants.py	2023-02-06 16:46:26.073622269 +0100
++++ esmf-8.4.0/src/addon/esmpy/src/esmpy/api/constants.py	2023-02-06 16:45:55.914426739 +0100
+@@ -34,9 +34,10 @@
+ 
+ # ESMF OS
+ _ESMF_OS = None
+-(_ESMF_OS_DARWIN,
++(_ESMF_OS_WIN,
++ _ESMF_OS_DARWIN,
+  _ESMF_OS_LINUX,
+- _ESMF_OS_UNICOS) = (-5,-4,-3)
++ _ESMF_OS_UNICOS) = (-6,-5,-4,-3)
+ 
+ # ESMF_NETCDF
+ _ESMF_NETCDF = False
+diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS -x '*.ESMF_LogFile' -x '*.egg-info' -x .pytest_cache -x .report.json -x 'esmpy*.test' -x build esmf-8.4.0.fragment/src/addon/esmpy/src/esmpy/interface/loadESMF.py esmf-8.4.0/src/addon/esmpy/src/esmpy/interface/loadESMF.py
+--- esmf-8.4.0.fragment/src/addon/esmpy/src/esmpy/interface/loadESMF.py	2023-02-06 16:46:18.478573030 +0100
++++ esmf-8.4.0/src/addon/esmpy/src/esmpy/interface/loadESMF.py	2023-02-06 16:45:55.914426739 +0100
+@@ -95,7 +95,9 @@
+ esmfos = esmfos.rstrip()
+ 
+ # set _ESMF_OS
+-if "Darwin" in esmfos:
++if "MinGW" in esmfos:
++    constants._ESMF_OS = constants._ESMF_OS_WIN
++elif "Darwin" in esmfos:
+     constants._ESMF_OS = constants._ESMF_OS_DARWIN
+ elif "Linux" in esmfos:
+     constants._ESMF_OS = constants._ESMF_OS_LINUX
+@@ -136,6 +138,8 @@
+ try:
+     if constants._ESMF_OS == constants._ESMF_OS_DARWIN:
+         _ESMF = np.ctypeslib.load_library('libesmf_fullylinked',libsdir)
++    elif constants._ESMF_OS == constants._ESMF_OS_WIN:
++        _ESMF = np.ctypeslib.load_library('esmf_fullylinked',libsdir)
+     else:
+         _ESMF = ct.CDLL(os.path.join(libsdir,'libesmf_fullylinked.so'),
+                         mode=ct.RTLD_GLOBAL)
