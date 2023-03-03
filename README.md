@@ -1,11 +1,11 @@
-About esmpy
-===========
+About esmpy-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/esmpy-feedstock/blob/main/LICENSE.txt)
 
 Home: http://earthsystemmodeling.org/esmpy/
 
 Package license: NCSA
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/esmpy-feedstock/blob/main/LICENSE.txt)
 
 Summary: ESMPy is a Python interface to the Earth System Modeling Framework (ESMF) regridding utility.
 
