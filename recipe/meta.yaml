@@ -1,5 +1,5 @@
-{% set version = "8.4.0" %}
-{% set build = 2 %}
+{% set version = "8.4.1" %}
+{% set build = 0 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -15,7 +15,7 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 28531810bf1ae78646cda6494a53d455d194400f19dccd13d6361871de42ed0f
+  sha256: 1b54cee91aacaa9df400bd284614cbb0257e175f6f3ec9977a2d991ed8aa1af6
   patches:
     - 0001-skip-problematic-test.patch
     - fix-pyproject.patch
