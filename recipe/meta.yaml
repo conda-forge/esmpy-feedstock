@@ -34,8 +34,14 @@ test:
   requires:
     - pip
     - pytest-json-report
+    - esmf {{ version }} mpi_mpich_*
+  source_files:
+    - src/addon/esmpy/examples/test_examples.py
   commands:
     - pip check
+    - mpiexec -np 1 python -m pytest -vs
+    - mpiexec -np 2 python -m pytest -vs
+    - mpiexec -np 2 src/addon/esmpy/examples/test_examples.py
 
 about:
   home: http://earthsystemmodeling.org/esmpy/
