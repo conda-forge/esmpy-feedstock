@@ -41,7 +41,7 @@ test:
     - pytest-json-report
     - esmf {{ version }} mpi_mpich_*
   source_files:
-    - src/addon/esmpy/examples/test_examples.py
+    - src/addon/esmpy/examples
   commands:
     - pip check
     - mpiexec -np 1 python -m pytest -vs
