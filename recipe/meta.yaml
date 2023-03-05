@@ -22,6 +22,8 @@ requirements:
     - esmf {{ version }} nompi_*
     - make
     - pip
+    - pytest
+    - pytest-json-report
     - setuptools >=41
     - setuptools-git-versioning
   run:
