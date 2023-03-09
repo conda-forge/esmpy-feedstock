@@ -1,13 +1,4 @@
-{% set version = "8.4.0" %}
-{% set build = 2 %}
-
-# recipe-lint fails if mpi is undefined
-{% set mpi = mpi or 'nompi' %}
-
-{% if mpi == 'mpich' %}
-# prioritize mpich variant, which was previously the only option, via build number
-{% set build = build + 100 %}
-{% endif %}
+{% set version = "8.4.1" %}
 
 package:
   name: esmpy
@@ -15,56 +6,32 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 28531810bf1ae78646cda6494a53d455d194400f19dccd13d6361871de42ed0f
+  sha256: 1b54cee91aacaa9df400bd284614cbb0257e175f6f3ec9977a2d991ed8aa1af6
   patches:
     - 0001-skip-problematic-test.patch
-    - fix-pyproject.patch
     - remove-fragments.patch
     - win-loading.patch
 
 build:
-  number: {{ build }}
-
-  # add build string so packages can depend on
-  # mpi or nompi variants explicitly:
-  # `esmf * mpi_mpich_*` for mpich
-  # `esmf * mpi_*` for any mpi
-  # `esmf * nompi_*` for no mpi
-
-  {% if mpi != 'nompi' %}
-  {% set mpi_prefix = "mpi_" + mpi %}
-  {% else %}
-  {% set mpi_prefix = "nompi" %}
-  {% endif %}
-  string: {{ mpi_prefix }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build }}
+  number: 0
+  noarch: python
 
 requirements:
-  build:
-    - make  # [unix]
-    - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
   host:
-    - make  # [unix]
-    - python
+    - python >=3.7
+    - esmf {{ version }} nompi_*
+    - pip
+    - setuptools >=41
+    - setuptools-git-versioning
+    # for testing
+    - make
+    - numpy
     - pytest
     - pytest-json-report
-    - netcdf4
-    - numpy
-    - esmf {{ version }} {{ mpi_prefix }}_*
-    - nose
-    - {{ mpi }}  # [mpi != 'nompi']
-    - mpi4py  # [mpi != 'nompi']
-    - pip
-    - setuptools-git-versioning
   run:
-    - python
+    - python >=3.7
     - numpy
-    - esmf {{ version }} {{ mpi_prefix }}_*
-    - {{ mpi }}  # [mpi != 'nompi']
-    - mpi4py  # [mpi != 'nompi']
-    - openssh  # [mpi == 'openmpi']
+    - esmf {{ version }}
 
 test:
   imports:
@@ -72,12 +39,14 @@ test:
   requires:
     - pip
     - pytest-json-report
+    - esmf {{ version }} mpi_mpich_*
+  source_files:
+    - src/addon/esmpy/examples
   commands:
     - pip check
-    # - make test
-    # - python -m pytest -vs  # [mpi == 'nompi']
-    # - mpiexec -np 1 python -m pytest -vs  # [mpi != 'nompi']
-    # - mpiexec -np 2 python -m pytest -vs  # [mpi != 'nompi']
+    - mpiexec -np 1 python -m pytest -vs
+    - mpiexec -np 2 python -m pytest -vs
+    - mpiexec -np 2 python src/addon/esmpy/examples/test_examples.py
 
 about:
   home: http://earthsystemmodeling.org/esmpy/
@@ -91,3 +60,4 @@ extra:
     - ocefpaf
     - rokuingh
     - xylar
+    - billsacks
