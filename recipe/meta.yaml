@@ -1,4 +1,4 @@
-{% set version = "8.4.1" %}
+{% set version = "8.4.2" %}
 
 package:
   name: esmpy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 1b54cee91aacaa9df400bd284614cbb0257e175f6f3ec9977a2d991ed8aa1af6
+  sha256: 969304efa518c7859567fa6e65efd960df2b4f6d72dbf2c3f29e39e4ab5ae594
   patches:
     - 0001-skip-problematic-test.patch
     - remove-fragments.patch
