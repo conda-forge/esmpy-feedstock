@@ -16,10 +16,6 @@ source:
 build:
   number: 1
   noarch: python
-  ignore_run_exports_from:
-    - make
-    - pytest
-    - pytest-json-report
 
 requirements:
   host:
