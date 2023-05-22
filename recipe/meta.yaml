@@ -11,10 +11,15 @@ source:
     - 0001-skip-problematic-test.patch
     - remove-fragments.patch
     - win-loading.patch
+    - fix-testing-deps.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
+  ignore_run_exports_from:
+    - make
+    - pytest
+    - pytest-json-report
 
 requirements:
   host:
