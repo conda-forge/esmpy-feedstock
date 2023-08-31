@@ -15,3 +15,12 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
     make test_serial
 fi
 
+for shell in sh csh fish
+do
+  for act_deact in activate deactivate
+  do
+    act_deact_dir=${PREFIX}/etc/conda/${act_deact}.d
+    mkdir -p ${act_deact_dir}
+    cp ${RECIPE_DIR}/scripts/${act_deact}.${shell} ${act_deact_dir}/esmpy-${act_deact}.${shell}
+  done
+done
