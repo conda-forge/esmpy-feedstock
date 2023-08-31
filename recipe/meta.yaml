@@ -14,7 +14,7 @@ source:
     - fix-testing-deps.patch
 
 build:
-  number: 3
+  number: 4
   noarch: python
 
 requirements:
