@@ -1,0 +1,26 @@
+diff -ruN esmf-8.6.0/src/addon/esmpy/pyproject.toml esmf-8.6.0-patch/src/addon/esmpy/pyproject.toml
+--- esmf-8.6.0/src/addon/esmpy/pyproject.toml	2023-11-09 23:05:45.000000000 +0100
++++ esmf-8.6.0-patch/src/addon/esmpy/pyproject.toml	2024-02-13 09:52:32.803128238 +0100
+@@ -12,13 +12,6 @@
+ dependencies = [
+     "numpy",
+     'importlib-metadata; python_version < "3.8"',
+-    # setuptools-git-versioning shouldn't be needed here, but is
+-    # included as a workaround for problems with the build-time
+-    # installation of this package with python 3.10 (given by the
+-    # build-system section above). By including it here, we at least
+-    # ensure that this package will be available for a second or
+-    # subsequent pip install of esmpy.
+-    'setuptools-git-versioning; python_version >= "3.10"',
+ ]
+ dynamic = [ "version" ]
+ 
+@@ -45,6 +38,6 @@
+ [tool.pytest.ini_options]
+ testpaths = [
+     "src/esmpy/test/test_api",
+-    "examples/test_examples.py", 
+-    "src/esmpy/test/regrid_from_file/test_regrid_from_file.py", 
++    "examples/test_examples.py",
++    "src/esmpy/test/regrid_from_file/test_regrid_from_file.py",
+ ]
