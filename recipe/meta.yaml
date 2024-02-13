@@ -9,7 +9,6 @@ source:
   sha256: ed057eaddb158a3cce2afc0712b49353b7038b45b29aee86180f381457c0ebe7
   patches:
     - 0001-skip-problematic-test.patch
-    - remove-fragments.patch
     - win-loading.patch
     - fix-testing-deps.patch
 
