@@ -9,7 +9,6 @@ source:
   sha256: ed057eaddb158a3cce2afc0712b49353b7038b45b29aee86180f381457c0ebe7
   patches:
     - win-loading.patch
-    - fix-testing-deps.patch
 
 build:
   number: 0
