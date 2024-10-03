@@ -1,4 +1,4 @@
-{% set version = "8.6.1" %}
+{% set version = "8.7.0" %}
 
 package:
   name: esmpy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: dc270dcba1c0b317f5c9c6a32ab334cb79468dda283d1e395d98ed2a22866364
+  sha256: c81b7767648540a187f3b104cebca24216a32c2a7d261af337d54435ce4d4162
   patches:
     - 0001-remove-setuptools-git-versioning.patch
     - win-loading.patch
