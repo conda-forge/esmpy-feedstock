@@ -12,8 +12,8 @@ ${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
     export ESMF_MPIRUN=${SRC_DIR}/src/Infrastructure/stubs/mpiuni/mpirun
+    export ESMPY_DATA_NEW_DIR=${SRC_DIR}/data
     make test_serial
-    rm -rf $SP_DIR/esmpy/data
 fi
 
 for shell in sh csh fish
