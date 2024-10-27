@@ -9,6 +9,10 @@ Package license: NCSA
 
 Summary: ESMPy is a Python interface to the Earth System Modeling Framework (ESMF) regridding utility.
 
+Development: https://github.com/esmf-org/esmf/tree/develop/src/addon/esmpy
+
+Documentation: https://earthsystemmodeling.org/esmpy_doc/nightly/develop/html/
+
 Current build status
 ====================
 
