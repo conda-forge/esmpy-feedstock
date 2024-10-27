@@ -11,6 +11,7 @@ source:
     - 0001-remove-setuptools-git-versioning.patch
     - 0002-win-loading.patch
     - 0003-change-data-url.patch
+    - 0004-locstream-py-3.12.patch
 
 build:
   number: 0

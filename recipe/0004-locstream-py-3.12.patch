@@ -1,0 +1,17 @@
+diff -ruN --no-dereference esmf-8.7.0/src/addon/esmpy/src/esmpy/api/locstream.py esmf-8.7.0-patch/src/addon/esmpy/src/esmpy/api/locstream.py
+--- esmf-8.7.0/src/addon/esmpy/src/esmpy/api/locstream.py	2024-10-03 21:21:21.000000000 -0600
++++ esmf-8.7.0-patch/src/addon/esmpy/src/esmpy/api/locstream.py	2024-10-27 15:09:03.407271621 -0600
+@@ -126,9 +126,11 @@
+             slc_ls = get_formatted_slice(slc, self.rank)
+ 
+         # slice at will
+-        try:
++        if not isinstance(slc_ls, slice):
+             ret = super(LocStream, self).__getitem__(slc_ls)
+-        except TypeError:
++        else:
++            # as of Python 3.12, slice objects are hashable so don't
++            # raise a TypeError
+             ret = self.copy()
+ 
+             # upper bounds and size
