@@ -8,7 +8,7 @@ cd ${SRC_DIR}/src/addon/esmpy
 rm -rf src/esmpy/fragments
 
 
-${PYTHON} -m pip install .
+${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
     export ESMF_MPIRUN=${SRC_DIR}/src/Infrastructure/stubs/mpiuni/mpirun
