@@ -5,7 +5,7 @@ cd %SRC_DIR%\src\addon\esmpy
 rem rd /s "src\esmpy\fragments"
 
 
-%PYTHON% -m pip install .
+%PYTHON% -m pip install . -vv --no-deps --no-build-isolation
 
 if errorlevel 1 exit 1
 

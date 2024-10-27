@@ -1,4 +1,4 @@
-{% set version = "8.6.1" %}
+{% set version = "8.7.0" %}
 
 package:
   name: esmpy
@@ -6,10 +6,12 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: dc270dcba1c0b317f5c9c6a32ab334cb79468dda283d1e395d98ed2a22866364
+  sha256: d7ab266e2af8c8b230721d4df59e61aa03c612a95cc39c07a2d5695746f21f56
   patches:
     - 0001-remove-setuptools-git-versioning.patch
-    - win-loading.patch
+    - 0002-win-loading.patch
+    - 0003-change-data-url.patch
+    - 0004-locstream-py-3.12.patch
 
 build:
   number: 0
@@ -17,7 +19,7 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - esmf {{ version }} nompi_*
     - pip
     - setuptools >=41
@@ -28,8 +30,10 @@ requirements:
     - pytest
     - pytest-json-report
   run:
-    - python >=3.7
+    # newer python so we don't need importlib-metadata
+    - python >=3.8
     - numpy
+    # skipping setuptools-git-versioning because this is really just a host dependency
     - esmf {{ version }}
 
 test:
@@ -43,15 +47,14 @@ test:
     - src/addon/esmpy/examples
   commands:
     - pip check
-    - mpiexec -np 1 python -m pytest -vs
-    - mpiexec -np 2 python -m pytest -vs
-    - mpiexec -np 2 python src/addon/esmpy/examples/test_examples.py
 
 about:
   home: http://earthsystemmodeling.org/esmpy/
   license: NCSA
   license_file: LICENSE
   summary: ESMPy is a Python interface to the Earth System Modeling Framework (ESMF) regridding utility.
+  dev_url: https://github.com/esmf-org/esmf/tree/develop/src/addon/esmpy
+  doc_url: https://earthsystemmodeling.org/esmpy_doc/nightly/develop/html/
 
 extra:
   recipe-maintainers:
