@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: c81b7767648540a187f3b104cebca24216a32c2a7d261af337d54435ce4d4162
+  sha256: d7ab266e2af8c8b230721d4df59e61aa03c612a95cc39c07a2d5695746f21f56
   patches:
     - 0001-remove-setuptools-git-versioning.patch
     - win-loading.patch
