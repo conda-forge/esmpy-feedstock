@@ -9,7 +9,8 @@ source:
   sha256: d7ab266e2af8c8b230721d4df59e61aa03c612a95cc39c07a2d5695746f21f56
   patches:
     - 0001-remove-setuptools-git-versioning.patch
-    - win-loading.patch
+    - 0002-win-loading.patch
+    - 0003-change-data-url.patch
 
 build:
   number: 0

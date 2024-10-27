@@ -1,0 +1,14 @@
+diff -ruN --no-dereference esmf-8.7.0/src/addon/esmpy/src/esmpy/util/cache_data.py esmf-8.7.0-patch/src/addon/esmpy/src/esmpy/util/cache_data.py
+--- esmf-8.7.0/src/addon/esmpy/src/esmpy/util/cache_data.py	2024-10-03 21:21:21.000000000 -0600
++++ esmf-8.7.0-patch/src/addon/esmpy/src/esmpy/util/cache_data.py	2024-10-27 14:21:02.950645881 -0600
+@@ -10,8 +10,8 @@
+         return os.path.join(site.getsitepackages()[0], "esmpy/data")
+ 
+ DATA_DIR = _data_dir()
+-DATA_URL = 'http://data.earthsystemmodeling.org/download/data/'
+-# DATA_URL = 'https://raw.github.com/esmf-org/esmf-test-data/main/grids/'
++# DATA_URL = 'http://data.earthsystemmodeling.org/download/data/'
++DATA_URL = 'https://raw.github.com/esmf-org/esmf-test-data/main/grids/'
+ 
+ def do_download():
+     """
