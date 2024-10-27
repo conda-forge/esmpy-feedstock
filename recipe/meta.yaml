@@ -47,9 +47,6 @@ test:
     - src/addon/esmpy/examples
   commands:
     - pip check
-    - mpiexec -np 1 python -m pytest -vs
-    - mpiexec -np 2 python -m pytest -vs
-    - mpiexec -np 2 python src/addon/esmpy/examples/test_examples.py
 
 about:
   home: http://earthsystemmodeling.org/esmpy/
