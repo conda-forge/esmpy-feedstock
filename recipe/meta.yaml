@@ -17,7 +17,7 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - esmf {{ version }} nompi_*
     - pip
     - setuptools >=41
@@ -28,8 +28,10 @@ requirements:
     - pytest
     - pytest-json-report
   run:
-    - python >=3.7
+    # newer python so we don't need importlib-metadata
+    - python >=3.8
     - numpy
+    # skipping setuptools-git-versioning because this is really just a host dependency
     - esmf {{ version }}
 
 test:
