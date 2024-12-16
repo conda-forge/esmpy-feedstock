@@ -14,12 +14,12 @@ source:
     - 0004-locstream-py-3.12.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - esmf {{ version }} nompi_*
     - pip
     - setuptools >=41
@@ -31,7 +31,7 @@ requirements:
     - pytest-json-report
   run:
     # newer python so we don't need importlib-metadata
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy
     # skipping setuptools-git-versioning because this is really just a host dependency
     - esmf {{ version }}
@@ -43,6 +43,7 @@ test:
     - pip
     - pytest-json-report
     - esmf {{ version }} mpi_mpich_*
+    - python {{ python_min }}
   source_files:
     - src/addon/esmpy/examples
   commands:
