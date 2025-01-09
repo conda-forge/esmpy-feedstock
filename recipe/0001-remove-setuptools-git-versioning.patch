@@ -1,9 +1,9 @@
-diff -ruN esmf-8.6.0/src/addon/esmpy/pyproject.toml esmf-8.6.0-patch/src/addon/esmpy/pyproject.toml
---- esmf-8.6.0/src/addon/esmpy/pyproject.toml	2023-11-09 23:05:45.000000000 +0100
-+++ esmf-8.6.0-patch/src/addon/esmpy/pyproject.toml	2024-02-13 09:52:32.803128238 +0100
-@@ -12,13 +12,6 @@
- dependencies = [
-     "numpy",
+diff -ruN esmf-8.8.0/src/addon/esmpy/pyproject.toml esmf-8.8.0-patch/src/addon/esmpy/pyproject.toml
+--- esmf-8.8.0/src/addon/esmpy/pyproject.toml	2025-01-08 20:40:31.000000000 +0100
++++ esmf-8.8.0-patch/src/addon/esmpy/pyproject.toml	2025-01-09 12:06:13.890339455 +0100
+@@ -16,13 +16,6 @@
+     # compatibility:
+     "numpy >= 1.19, < 3",
      'importlib-metadata; python_version < "3.8"',
 -    # setuptools-git-versioning shouldn't be needed here, but is
 -    # included as a workaround for problems with the build-time
@@ -15,12 +15,3 @@ diff -ruN esmf-8.6.0/src/addon/esmpy/pyproject.toml esmf-8.6.0-patch/src/addon/e
  ]
  dynamic = [ "version" ]
  
-@@ -45,6 +38,6 @@
- [tool.pytest.ini_options]
- testpaths = [
-     "src/esmpy/test/test_api",
--    "examples/test_examples.py", 
--    "src/esmpy/test/regrid_from_file/test_regrid_from_file.py", 
-+    "examples/test_examples.py",
-+    "src/esmpy/test/regrid_from_file/test_regrid_from_file.py",
- ]
