@@ -30,7 +30,7 @@ requirements:
   run:
     # newer python so we don't need importlib-metadata
     - python >={{ python_min }}
-    - numpy
+    - numpy >=1.19,<3
     # skipping setuptools-git-versioning because this is really just a host dependency
     - esmf {{ version }}
 
