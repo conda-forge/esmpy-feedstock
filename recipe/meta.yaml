@@ -40,7 +40,7 @@ test:
   requires:
     - pip
     - pytest-json-report
-    - esmf {{ version }} mpi_mpich_*
+    - esmf * mpi_mpich_*
     - python {{ python_min }}
   source_files:
     - src/addon/esmpy/examples
