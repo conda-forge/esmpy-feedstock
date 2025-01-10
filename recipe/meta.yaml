@@ -1,4 +1,4 @@
-{% set version = "8.7.0" %}
+{% set version = "8.8.0" %}
 
 package:
   name: esmpy
@@ -6,15 +6,13 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: d7ab266e2af8c8b230721d4df59e61aa03c612a95cc39c07a2d5695746f21f56
+  sha256: f89327428aeef6ad34660b5b78f30d1c55ec67efb8f7df1991fdaa6b1eb3a27c
   patches:
     - 0001-remove-setuptools-git-versioning.patch
     - 0002-win-loading.patch
-    - 0003-change-data-url.patch
-    - 0004-locstream-py-3.12.patch
 
 build:
-  number: 1
+  number: 0
   noarch: python
 
 requirements:
@@ -32,7 +30,7 @@ requirements:
   run:
     # newer python so we don't need importlib-metadata
     - python >={{ python_min }}
-    - numpy
+    - numpy >=1.19,<3
     # skipping setuptools-git-versioning because this is really just a host dependency
     - esmf {{ version }}
 
@@ -42,7 +40,7 @@ test:
   requires:
     - pip
     - pytest-json-report
-    - esmf {{ version }} mpi_mpich_*
+    - esmf * mpi_mpich_*
     - python {{ python_min }}
   source_files:
     - src/addon/esmpy/examples
