@@ -1,0 +1,12 @@
+diff -ruN esmf-8.8.0/src/addon/esmpy/pyproject.toml esmf-8.8.0-patch/src/addon/esmpy/pyproject.toml
+--- esmf-8.8.0/src/addon/esmpy/pyproject.toml	2025-03-28 08:51:42.955758694 -0600
++++ esmf-8.8.0-patch/src/addon/esmpy/pyproject.toml	2025-03-28 08:51:28.604602602 -0600
+@@ -30,7 +30,7 @@
+ template = "{tag}"
+ dev_template = "{tag}"
+ dirty_template = "{tag}"
+-starting_version = "8.8.0beta" # this is a backup for pip <= 22.0 where git-versioning doesn't work
++starting_version = "8.8.0" # this is a backup for pip <= 22.0 where git-versioning doesn't work
+ 
+ [tool.dynamic]
+ version = "placeholder" # this is a placeholder for the version pulled with git-versioning
