@@ -10,7 +10,6 @@ source:
   patches:
     - 0001-remove-setuptools-git-versioning.patch
     - 0002-win-loading.patch
-    - 0003-fix-version-number.patch
 
 build:
   number: 0
