@@ -27,6 +27,7 @@ requirements:
     - numpy
     - pytest
     - pytest-json-report
+    - scipy
   run:
     # newer python so we don't need importlib-metadata
     - python >={{ python_min }}
@@ -40,6 +41,7 @@ test:
   requires:
     - pip
     - pytest-json-report
+    - scipy
     - esmf * mpi_mpich_*
     - python {{ python_min }}
   source_files:
