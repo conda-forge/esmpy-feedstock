@@ -1,4 +1,4 @@
-{% set version = "8.8.1" %}
+{% set version = "8.9.0" %}
 
 package:
   name: esmpy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/esmf-org/esmf/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: b0acb59d4f000bfbdfddc121a24819bd2a50997c7b257b0db2ceb96f3111b173
+  sha256: 586e0101d76ff9842d9ad43567fae50317ee794d80293430d9f1847dec0eefa5
   patches:
     - 0001-remove-setuptools-git-versioning.patch
     - 0002-win-loading.patch
@@ -27,6 +27,7 @@ requirements:
     - numpy
     - pytest
     - pytest-json-report
+    - scipy
   run:
     # newer python so we don't need importlib-metadata
     - python >={{ python_min }}
@@ -40,6 +41,7 @@ test:
   requires:
     - pip
     - pytest-json-report
+    - scipy
     - esmf * mpi_mpich_*
     - python {{ python_min }}
   source_files:
