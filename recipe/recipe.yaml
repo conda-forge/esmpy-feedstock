@@ -20,7 +20,7 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
-    - esmf ${{ version }} nompi_*
+    - esmf ==${{ version }} nompi_*
     - pip
     - setuptools >=41
     - setuptools-git-versioning
@@ -34,7 +34,7 @@ requirements:
     - python >=${{ python_min }}
     - numpy >=1.19,<3
     # skipping setuptools-git-versioning because this is really just a host dependency
-    - esmf ${{ version }}
+    - esmf ==${{ version }}
 
 tests:
   - python:
