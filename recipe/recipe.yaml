@@ -37,13 +37,9 @@ requirements:
     - esmf ==${{ version }}
 
 tests:
-  - python:
-      imports:
-        - esmpy
-      pip_check: true
-      python_version: ${{ python_min }}.*
-    requirements:
+  - requirements:
       run:
+        - python ${{ python_min }}.*
         - pip
         - pytest-json-report
         - scipy
@@ -51,6 +47,9 @@ tests:
     files:
       source:
         - src/addon/esmpy/examples
+    script:
+      - python -c "import esmpy"
+      - pip check
 
 about:
   homepage: http://earthsystemmodeling.org/esmpy/
